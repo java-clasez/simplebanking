@@ -12,6 +12,25 @@ public class Account {
      */
     private long currentBalance;
 
+    private long rateOfInterest = 2;
+
+    public Account(long initialAmount) {
+        this.currentBalance = initialAmount;
+    }
+
+    public Account() {
+
+    }
+
+    public Account(long intitalAmount, long rateOfInterest) {
+        this.currentBalance = intitalAmount;
+        this.rateOfInterest = rateOfInterest;
+    }
+
+    public long getRateOfInterest() {
+        return this.rateOfInterest;
+    }
+
     /**
      * Get the current balance for the account.
      * @return current balance
@@ -21,12 +40,24 @@ public class Account {
     }
 
     /**
+     * Set the balance
+     * @param amount
+     */
+    public void setCurrentBalance(long amount) {
+        this.currentBalance = amount;
+    }
+
+    public void setRateOfInterest(long rateOfInterest) {
+        this.rateOfInterest = rateOfInterest;
+    }
+
+    /**
      * Make a deposit to the account
      * @param depositedAmount
      */
     public void makeDeposit(long depositedAmount) {
         if (depositedAmount < 0) {
-            System.out.println("Please enter a positive amount to be deposited.");
+            System.err.println("Please enter a positive amount to be deposited.");
         } else {
             this.currentBalance = this.currentBalance + depositedAmount;
         }
@@ -38,9 +69,14 @@ public class Account {
      */
     public void makeWithdrawal(long withdrawalAmount) {
         if (withdrawalAmount > this.currentBalance) {
-            System.out.println("Cannot withdraw this amount (" + withdrawalAmount + ") as it exceeds the current balance (" + this.currentBalance + ")");
+            System.err.println("Cannot withdraw this amount (" + withdrawalAmount + ") as it exceeds the current balance (" + this.currentBalance + ")");
         } else {
             this.currentBalance = this.currentBalance - withdrawalAmount;
         }
+    }
+
+    public long getInterest(long numberOfYears) {
+        long interest = rateOfInterest * numberOfYears;
+        return interest;
     }
 }
