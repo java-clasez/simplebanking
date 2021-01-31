@@ -1,10 +1,14 @@
-package com.javaclasez.banking.simple;
+package com.javaclasez.banking.simple.main;
+
+import com.javaclasez.banking.simple.accounts.Account;
+import com.javaclasez.banking.simple.accounts.Account3Percent;
+import com.javaclasez.banking.simple.accounts.Account5Percent;
 
 import java.util.Scanner;
 
 public class SimpleBankingApp {
     // static Account account = new Account(100, 3);
-    static Account3Percent account = new Account3Percent();
+    static Account account = new Account5Percent();
 
     public static void main(String[] args) {
         // account.setCurrentBalance(100);

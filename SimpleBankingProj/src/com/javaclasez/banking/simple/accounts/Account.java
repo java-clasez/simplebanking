@@ -1,4 +1,4 @@
-package com.javaclasez.banking.simple;
+package com.javaclasez.banking.simple.accounts;
 
 /**
  * Class to reperesent an 'Account'. Has methods for different operations.
